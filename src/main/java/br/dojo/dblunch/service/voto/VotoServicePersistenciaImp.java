@@ -1,5 +1,6 @@
 package br.dojo.dblunch.service.voto;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
@@ -25,14 +26,14 @@ public class VotoServicePersistenciaImp implements VotoServicePersistencia{
 		votoRepository.incluir(voto);
 	}
 	
-	private void validarVoto(Voto voto) throws Exception{
+	private void validarVoto(Voto voto) throws IOException{
 		validaProfissionalJaVotou(voto);
 	}
 
-	private void validaProfissionalJaVotou(Voto voto) throws Exception{
+	private void validaProfissionalJaVotou(Voto voto) throws IOException{
 		List<Voto> listaVotosDiaAtual = votoConsulta.listarVotosDiaAtual();
 		if(!listaVotosDiaAtual.isEmpty() && profissionalJaVotouHoje(voto, listaVotosDiaAtual)) {
-			throw new Exception("Usuario ja votou hoje.");
+			throw new IOException("Usuario ja votou hoje.");
 		}
 	}
 
