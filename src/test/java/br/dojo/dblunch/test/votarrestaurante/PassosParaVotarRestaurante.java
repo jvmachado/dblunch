@@ -67,7 +67,7 @@ public class PassosParaVotarRestaurante {
 		}
 	}
 
-	@Entao("^o voto não deve ser salvo$")
+	@Entao("^o voto nao deve ser salvo$")
 	public void o_voto_nao_deve_ser_salvo() throws Throwable {
 
 	}

@@ -32,7 +32,7 @@ public class VotoServicePersistenciaImp implements VotoServicePersistencia{
 	private void validaProfissionalJaVotou(Voto voto) throws Exception{
 		List<Voto> listaVotosDiaAtual = votoConsulta.listarVotosDiaAtual();
 		if(!listaVotosDiaAtual.isEmpty() && profissionalJaVotouHoje(voto, listaVotosDiaAtual)) {
-			throw new Exception("Usuário já votou hoje.");
+			throw new Exception("Usuario ja votou hoje.");
 		}
 	}
 
