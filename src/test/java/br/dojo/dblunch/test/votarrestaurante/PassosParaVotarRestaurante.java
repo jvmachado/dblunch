@@ -14,7 +14,7 @@ import br.dojo.dblunch.service.voto.VotoServicePersistenciaImp;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Então;
+import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
 public class PassosParaVotarRestaurante {
@@ -67,22 +67,22 @@ public class PassosParaVotarRestaurante {
 		}
 	}
 
-	@Então("^o voto não deve ser salvo$")
-	public void o_voto_não_deve_ser_salvo() throws Throwable {
+	@Entao("^o voto não deve ser salvo$")
+	public void o_voto_nao_deve_ser_salvo() throws Throwable {
 
 	}
 
-	@Então("^deve receber uma mensagem de aviso \"([^\"]*)\"$")
+	@Entao("^deve receber uma mensagem de aviso \"([^\"]*)\"$")
 	public void deve_receber_uma_mensagem_de_aviso(String mensagemEsperada) throws Throwable {
 		Assert.assertEquals(mensagemEsperada, mensagemErro);
 	}
 
-	@Então("^o voto deve ser salvo$")
+	@Entao("^o voto deve ser salvo$")
 	public void o_voto_deve_ser_salvo() throws Throwable {
 		Assert.assertFalse(votoConsulta.listar().isEmpty());
 	}
 
-	@Então("^deve receber uma mensagem de aviso$")
+	@Entao("^deve receber uma mensagem de aviso$")
 	public void deve_receber_uma_mensagem_de_aviso() throws Throwable {
 		Assert.assertNotNull(mensagemErro);
 	}
