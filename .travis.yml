@@ -1,3 +1,11 @@
 language: java
 sudo: false
-script: mvn clean verify
+dist: trusty
+addons:
+  sonarcloud:
+    organization: "jvmachado-github" # Por exemplo"easfilho-github"
+    token:
+      secure: b57ae2c829925704ad487994ef2ce26af0d96535 # token gerado na adição de novo projeto no sonarcloud.io
+:
+  # Comando que constróio o projeto, roda os testes com cobertua e executa o sonar
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
