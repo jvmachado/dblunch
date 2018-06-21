@@ -8,7 +8,7 @@ import br.dojo.dblunch.model.Voto;
 public class BancoDados {
 
 	private static BancoDados instance;
-	private List<Voto> tabelaVotos = new ArrayList<Voto>();
+	private List<Voto> tabelaVotos = new ArrayList<>();
 	private BancoDados() {
 	}
 
