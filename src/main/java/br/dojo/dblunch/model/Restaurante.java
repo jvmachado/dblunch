@@ -8,4 +8,7 @@ public class Restaurante {
 		this.nome = nome;
 	}
 
+	public String getNome() {
+		return nome;
+	}
 }

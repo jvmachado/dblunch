@@ -23,5 +23,9 @@ public class Voto {
 	public boolean possuiData(Calendar data) {
 		return this.data.get(Calendar.DAY_OF_YEAR) == data.get(Calendar.DAY_OF_YEAR);
 	}
+
+	public Restaurante getRestaurante() {
+		return restaurante;
+	}
 	
 }

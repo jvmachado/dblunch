@@ -9,30 +9,30 @@ import br.dojo.dblunch.model.Restaurante;
 import br.dojo.dblunch.model.Voto;
 import br.dojo.dblunch.repository.VotoRepository;
 
-public class VotoServicePersistenciaImp implements VotoServicePersistencia{
+public class VotoServicePersistenciaImp implements VotoServicePersistencia {
 
 	private VotoRepository votoRepository;
 	private VotoConsulta votoConsulta;
-	
+
 	public VotoServicePersistenciaImp() {
 		votoRepository = new VotoRepository();
 		votoConsulta = new VotoServiceConsultaImp();
 	}
 
 	@Override
-	public void votar(Restaurante restaurante, Profissional profissional, Calendar data) throws Exception {
+	public void votar(Restaurante restaurante, Profissional profissional, Calendar data) throws IOException {
 		Voto voto = new Voto(restaurante, profissional, data);
 		validarVoto(voto);
 		votoRepository.incluir(voto);
 	}
-	
-	private void validarVoto(Voto voto) throws IOException{
+
+	private void validarVoto(Voto voto) throws IOException {
 		validaProfissionalJaVotou(voto);
 	}
 
-	private void validaProfissionalJaVotou(Voto voto) throws IOException{
+	private void validaProfissionalJaVotou(Voto voto) throws IOException {
 		List<Voto> listaVotosDiaAtual = votoConsulta.listarVotosDiaAtual();
-		if(!listaVotosDiaAtual.isEmpty() && profissionalJaVotouHoje(voto, listaVotosDiaAtual)) {
+		if (!listaVotosDiaAtual.isEmpty() && profissionalJaVotouHoje(voto, listaVotosDiaAtual)) {
 			throw new IOException("Usuario ja votou hoje.");
 		}
 	}
