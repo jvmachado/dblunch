@@ -23,6 +23,7 @@
 	</build>
 	<properties>
 		<cucumber.version>1.2.5</cucumber.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<!-- JUnit -->
