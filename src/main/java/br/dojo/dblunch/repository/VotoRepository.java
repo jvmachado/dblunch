@@ -1,6 +1,6 @@
 package br.dojo.dblunch.repository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +23,7 @@ public class VotoRepository {
 	}
 
 	public List<Voto> listarVotosDiaAtual() {
-		return bancoDados.getListaVoto().stream().filter(v -> v.possuiData(LocalDateTime.now()))
+		return bancoDados.getListaVoto().stream().filter(v -> v.possuiData(LocalDate.now()))
 				.collect(Collectors.toList());
 	}
 }

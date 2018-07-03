@@ -8,7 +8,11 @@ import br.dojo.dblunch.repository.VotoRepository;
 public class VotoServiceConsultaImp implements VotoConsulta{
 
 	private VotoRepository votoRepository;
-	
+
+	public VotoServiceConsultaImp(VotoRepository votoRepository) {
+		this.votoRepository = votoRepository;
+	}
+
 	public VotoServiceConsultaImp() {
 		votoRepository = new VotoRepository();
 	}

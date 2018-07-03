@@ -1,6 +1,6 @@
 package br.dojo.dblunch.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -24,9 +24,9 @@ public class Voto {
 	private Profissional profissional;
 
 	@Column
-	private LocalDateTime data;
+	private LocalDate data;
 
-	public Voto(Restaurante restaurante, Profissional profissional, LocalDateTime data) {
+	public Voto(Restaurante restaurante, Profissional profissional, LocalDate data) {
 		this.restaurante = restaurante;
 		this.profissional = profissional;
 		this.data = data;
@@ -36,7 +36,7 @@ public class Voto {
 		return profissional;
 	}
 
-	public boolean possuiData(LocalDateTime data) {
+	public boolean possuiData(LocalDate data) {
 		return this.data.equals(data);
 	}
 

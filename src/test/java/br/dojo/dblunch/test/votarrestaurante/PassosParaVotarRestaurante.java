@@ -1,6 +1,6 @@
 package br.dojo.dblunch.test.votarrestaurante;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.junit.Assert;
 
@@ -48,7 +48,7 @@ public class PassosParaVotarRestaurante {
 			throws Throwable {
 		Restaurante restaurante = new Restaurante(nomeRestaurante);
 		Profissional profissional = new Profissional(nomeProfissional);
-		votoService.votar(restaurante, profissional, LocalDateTime.now());
+		votoService.votar(restaurante, profissional, LocalDate.now());
 	}
 
 	@Dado("^que no dia anterior o profissional \"([^\"]*)\" votou no restaurante \"([^\"]*)\"$")
@@ -56,13 +56,13 @@ public class PassosParaVotarRestaurante {
 			throws Throwable {
 		Restaurante restaurante = new Restaurante(nomeRestaurante);
 		Profissional profissional = new Profissional(nomeProfissional);
-		votoService.votar(restaurante, profissional, LocalDateTime.now().minusDays(1l));
+		votoService.votar(restaurante, profissional, LocalDate.now().minusDays(1l));
 	}
 
 	@Quando("^votar no restaurante$")
 	public void votar_no_restaurante() throws Throwable {
 		try {
-			votoService.votar(restaurante, profissional, LocalDateTime.now());
+			votoService.votar(restaurante, profissional, LocalDate.now());
 		} catch (Exception e) {
 			mensagemErro = e.getMessage();
 		}
