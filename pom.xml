@@ -21,10 +21,20 @@
 			</plugin>
 		</plugins>
 	</build>
+
 	<properties>
 		<cucumber.version>1.2.5</cucumber.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>jcenter-repo</id>
+			<url>https://jcenter.bintray.com/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<!-- JUnit -->
 		<dependency>
@@ -52,5 +62,49 @@
 			<version>2.12.2</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.3.1.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<scope>provided</scope>
+			<version>5.3.1.Final</version>
+		</dependency>
+
+		<!-- HSQL -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.4.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- PostgreSQL -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.2</version>
+		</dependency>
+
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.0</version>
+		</dependency>
+
+		<!-- MockNeat -->
+		<dependency>
+			<groupId>net.andreinc.mockneat</groupId>
+			<artifactId>mockneat</artifactId>
+			<version>0.1.7</version>
+		</dependency>
+
 	</dependencies>
 </project>

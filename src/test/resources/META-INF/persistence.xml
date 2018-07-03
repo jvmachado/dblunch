@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="DBLunch-HSQL"
+		transaction-type="RESOURCE_LOCAL">
+		<!--provider>org.hibernate.ejb.HibernatePersistence</provider -->
+		<!--jta-data-source>java:/DefaultDS</jta-data-source -->
+		<!--jar-file>MyApp.jar</jar-file -->
+		<!--validation-mode>CALLBACK</validation-mode -->
+		<!--shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode -->
+		<class>br.dojo.dblunch.model.Restaurante</class>
+		<class>br.dojo.dblunch.model.Voto</class>
+		<class>br.dojo.dblunch.model.Profissional</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+		<properties>
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.hsqldb.jdbcDriver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:hsqldb:mem:.;sql.syntax_ora=true" />
+			<property name="javax.persistence.jdbc.user" value="dede" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.connection.shutdown" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<!-- Options: validate: validate the schema, makes no changes to the database. 
+				update: update the schema. create: creates the schema, destroying previous 
+				data. create-drop: drop the schema when the SessionFactory is closed explicitly, 
+				typically when the application is stopped. -->
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="DBLunch-PgSQL"
+		transaction-type="RESOURCE_LOCAL">
+
+		<class>br.dojo.dblunch.model.Restaurante</class>
+		<class>br.dojo.dblunch.model.Voto</class>
+		<class>br.dojo.dblunch.model.Profissional</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="org.postgresql.Driver" /> <!-- DB Driver -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:postgresql://localhost/dblunch" /> <!-- BD Mane -->
+			<property name="javax.persistence.jdbc.user"
+				value="postgres" /> <!-- DB User -->
+			<property name="javax.persistence.jdbc.password"
+				value="12345" /> <!-- DB Password -->
+
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQL95Dialect" /> <!-- DB Dialect -->
+			<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
+
+			<property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+			<property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+		</properties>
+
+	</persistence-unit>
+</persistence>
