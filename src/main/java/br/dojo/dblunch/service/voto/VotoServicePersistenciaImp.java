@@ -1,7 +1,7 @@
 package br.dojo.dblunch.service.voto;
 
 import java.io.IOException;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.List;
 
 import br.dojo.dblunch.model.Profissional;
@@ -16,11 +16,11 @@ public class VotoServicePersistenciaImp implements VotoServicePersistencia {
 
 	public VotoServicePersistenciaImp() {
 		votoRepository = new VotoRepository();
-		votoConsulta = new VotoServiceConsultaImp();
+		votoConsulta = new VotoServiceConsultaImp(votoRepository);
 	}
 
 	@Override
-	public void votar(Restaurante restaurante, Profissional profissional, Calendar data) throws IOException {
+	public void votar(Restaurante restaurante, Profissional profissional, LocalDate data) throws IOException {
 		Voto voto = new Voto(restaurante, profissional, data);
 		validarVoto(voto);
 		votoRepository.incluir(voto);

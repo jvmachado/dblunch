@@ -17,8 +17,8 @@ Funcionalidade: US001 - Votar Restaurante
     Entao o voto deve ser salvo
     
     Cenario: RN 02 - Deve validar se o profissional já votou em um restaurate
-    Dado que o profissional "Rambo" votou no restaurante "Palatus"
-    E que o profissional "Rambo" selecionou o restaurante "Palatus"
+    Dado que o profissional "Robinho" votou no restaurante "Palatus"
+    E que o profissional "Robinho" selecionou o restaurante "Palatus"
     Quando votar no restaurante 
     Entao deve receber uma mensagem de aviso "Usuario ja votou hoje."
     E o voto nao deve ser salvo

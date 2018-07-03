@@ -1,6 +1,6 @@
 package br.dojo.dblunch.test.votarrestaurante;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 import org.junit.Assert;
 
@@ -24,7 +24,7 @@ public class PassosParaVotarRestaurante {
 	private Restaurante restaurante;
 	private String mensagemErro;
 	private Profissional profissional;
-	
+
 	@After
 	public void finalizarCenario() {
 		BancoDados.getInstance().limparBanco();
@@ -37,31 +37,32 @@ public class PassosParaVotarRestaurante {
 	}
 
 	@Dado("^que o profissional \"([^\"]*)\" selecionou o restaurante \"([^\"]*)\"$")
-	public void que_o_profissional_selecionou_o_restaurante(String nomeProfissional, String nomeRestaurante) throws Throwable {
+	public void que_o_profissional_selecionou_o_restaurante(String nomeProfissional, String nomeRestaurante)
+			throws Throwable {
 		restaurante = new Restaurante(nomeRestaurante);
 		profissional = new Profissional(nomeProfissional);
 	}
 
 	@Dado("^que o profissional \"([^\"]*)\" votou no restaurante \"([^\"]*)\"$")
-	public void que_o_profissional_votou_no_restaurante(String nomeProfissional, String nomeRestaurante) throws Throwable {
+	public void que_o_profissional_votou_no_restaurante(String nomeProfissional, String nomeRestaurante)
+			throws Throwable {
 		Restaurante restaurante = new Restaurante(nomeRestaurante);
 		Profissional profissional = new Profissional(nomeProfissional);
-		votoService.votar(restaurante, profissional, Calendar.getInstance());
+		votoService.votar(restaurante, profissional, LocalDate.now());
 	}
-	
+
 	@Dado("^que no dia anterior o profissional \"([^\"]*)\" votou no restaurante \"([^\"]*)\"$")
-	public void que_no_dia_anterior_o_profissional_votou_no_restaurante(String nomeProfissional, String nomeRestaurante) throws Throwable {
+	public void que_no_dia_anterior_o_profissional_votou_no_restaurante(String nomeProfissional, String nomeRestaurante)
+			throws Throwable {
 		Restaurante restaurante = new Restaurante(nomeRestaurante);
 		Profissional profissional = new Profissional(nomeProfissional);
-		Calendar dataAnterior = Calendar.getInstance();
-		dataAnterior.add(Calendar.DATE, -1);
-		votoService.votar(restaurante, profissional, dataAnterior);
+		votoService.votar(restaurante, profissional, LocalDate.now().minusDays(1l));
 	}
 
 	@Quando("^votar no restaurante$")
 	public void votar_no_restaurante() throws Throwable {
 		try {
-			votoService.votar(restaurante, profissional, Calendar.getInstance());
+			votoService.votar(restaurante, profissional, LocalDate.now());
 		} catch (Exception e) {
 			mensagemErro = e.getMessage();
 		}
